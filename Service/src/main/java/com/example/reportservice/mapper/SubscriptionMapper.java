@@ -1,18 +1,17 @@
 package com.example.reportservice.mapper;
+
 import com.example.report.model.Period;
 import com.example.report.model.ReportType;
 import com.example.reportservice.entity.Subscription;
-
 import com.example.reportservice.model.SubscriptionDto;
 import org.mapstruct.Mapper;
-
 import org.mapstruct.factory.Mappers;
 
 import java.util.Arrays;
 import java.util.List;
 
 
-@Mapper (componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface SubscriptionMapper {
     SubscriptionMapper INSTANCE = Mappers.getMapper(SubscriptionMapper.class);
 

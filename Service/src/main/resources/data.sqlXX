@@ -1,0 +1,25 @@
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('TRANSACTION', '123', '123,234,345', 'DAILY', 'en');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('AUTHORISATION', '234', '678,789,890', 'DAILY', 'es');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('TRANSACTION', '234', '234,456,345', 'DAILY', 'en');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('AUTHORISATION', '567', '789,789,890', 'DAILY', 'es');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('TRANSACTION', '678', '123,234,890', 'DAILY', 'en');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('AUTHORISATION', '567', '678,809,890', 'DAILY', 'es');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('TRANSACTION', '999', '666,777,345', 'DAILY', 'en');
+
+INSERT INTO report_subscription (report_type, merchant_id, merchants_included, period, language)
+VALUES ('AUTHORISATION', '456', '888,999,666', 'DAILY', 'es');
+
+

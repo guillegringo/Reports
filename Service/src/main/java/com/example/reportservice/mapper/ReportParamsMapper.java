@@ -1,11 +1,12 @@
 package com.example.reportservice.mapper;
+
 import com.example.report.model.ReportParams;
 import com.example.reportservice.model.SubscriptionDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper (componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface ReportParamsMapper {
 
     ReportParamsMapper INSTANCE = Mappers.getMapper(ReportParamsMapper.class);

@@ -5,16 +5,16 @@ import com.example.reportservice.entity.Subscription;
 import com.example.reportservice.exceptions.NotFoundException;
 import com.example.reportservice.mapper.SubscriptionMapper;
 import com.example.reportservice.model.SubscriptionDto;
-
 import com.example.reportservice.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class SubscriptionServiceImpl  implements SubscriptionService {
+public class SubscriptionServiceImpl implements SubscriptionService {
 
 
     @Autowired

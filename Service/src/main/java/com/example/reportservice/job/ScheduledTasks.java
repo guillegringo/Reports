@@ -2,21 +2,17 @@ package com.example.reportservice.job;
 
 import com.example.report.model.ReportParams;
 import com.example.report.service.DummyReportService;
-
 import com.example.report.util.PeriodUtils;
 import com.example.reportservice.dao.SubscriptionRepository;
 import com.example.reportservice.mapper.ReportParamsMapper;
 import com.example.reportservice.mapper.SubscriptionMapper;
 import com.example.reportservice.model.SubscriptionDto;
 import lombok.RequiredArgsConstructor;
-
+import org.jobrunr.scheduling.JobScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.jobrunr.scheduling.JobScheduler;
-import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -43,11 +39,11 @@ public class ScheduledTasks {
     public void dailyTask() {
         List<SubscriptionDto> subscriptions = this.subscriptionRepository.findAllDailySubscriptions().stream().map(subscriptionMapper::entityToDto).toList();
 
-        subscriptions.forEach( item -> {
-                    ReportParams reportParams = reportParamsMapper.subscriptionDtoToReportParams(item);
-                    reportParams.setFrom(PeriodUtils.getStartOfToday());
-                    reportParams.setTo(PeriodUtils.getEndOfTomorrow());
-                    jobScheduler.<DummyReportService>enqueue(dummyReportService -> dummyReportService.generate(reportParams));
+        subscriptions.forEach(item -> {
+            ReportParams reportParams = reportParamsMapper.subscriptionDtoToReportParams(item);
+            reportParams.setFrom(PeriodUtils.getStartOfToday());
+            reportParams.setTo(PeriodUtils.getEndOfTomorrow());
+            jobScheduler.<DummyReportService>enqueue(dummyReportService -> dummyReportService.generate(reportParams));
         });
     }
 
@@ -78,9 +74,6 @@ public class ScheduledTasks {
     public void scheduleTask() {
         this.dailyTask();
     }
-
-
-
 
 
 }
