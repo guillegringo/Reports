@@ -42,7 +42,7 @@ public class ScheduledTasks {
         subscriptions.forEach(item -> {
             ReportParams reportParams = reportParamsMapper.subscriptionDtoToReportParams(item);
             reportParams.setFrom(PeriodUtils.getStartOfToday());
-            reportParams.setTo(PeriodUtils.getEndOfTomorrow());
+            reportParams.setTo(PeriodUtils.getEndOfDay());
             jobScheduler.<DummyReportService>enqueue(dummyReportService -> dummyReportService.generate(reportParams));
         });
     }

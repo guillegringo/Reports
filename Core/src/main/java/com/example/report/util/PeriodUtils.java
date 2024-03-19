@@ -12,6 +12,11 @@ public class PeriodUtils {
         return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
+    public static Date getEndOfDay() {
+        LocalDate localDate = LocalDate.now();
+        return Date.from(localDate.atTime(23, 59, 59).atZone(ZoneId.systemDefault()).toInstant());
+    }
+
 
     public static Date getEndOfTomorrow() {
         LocalDate localDate = LocalDate.now().plusDays(1);
