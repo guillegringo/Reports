@@ -35,27 +35,27 @@ public class ScheduledTasks {
     private JobScheduler jobScheduler;
 
     // Ejecuta el método cada día a las 10:00 AM
-    @Scheduled(cron = "0 0 10 * * ?")
+ //   @Scheduled(cron = "0 0 10 * * ?")
     public void dailyTask() {
         List<SubscriptionDto> subscriptions = this.subscriptionRepository.findAllDailySubscriptions().stream().map(subscriptionMapper::entityToDto).toList();
 
-        subscriptions.forEach(item -> {
+/*        subscriptions.forEach(item -> {
             ReportParams reportParams = reportParamsMapper.subscriptionDtoToReportParams(item);
             reportParams.setFrom(PeriodUtils.getStartOfToday());
             reportParams.setTo(PeriodUtils.getEndOfDay());
             jobScheduler.<DummyReportService>enqueue(dummyReportService -> dummyReportService.generate(reportParams));
-        });
+        });*/
     }
 
 
     // Ejecuta el método cada lunes a las 9:00 AM
-    @Scheduled(cron = "0 0 9 ? * MON")
+  //  @Scheduled(cron = "0 0 9 ? * MON")
     public void weeklyTask() {
         System.out.println("Tarea semanal ejecutada.");
     }
 
     // Ejecuta el método el primer día de cada mes a las 8:00 AM
-    @Scheduled(cron = "0 0 8 1 * ?")
+ //   @Scheduled(cron = "0 0 8 1 * ?")
     public void monthlyTask() {
         System.out.println("Tarea mensual ejecutada.");
     }
@@ -70,7 +70,7 @@ public class ScheduledTasks {
 
 
     // PARA PROBAR
-    @Scheduled(initialDelay = 10000, fixedRate = 10000000)
+ //   @Scheduled(initialDelay = 10000, fixedRate = 10000000)
     public void scheduleTask() {
         this.dailyTask();
     }

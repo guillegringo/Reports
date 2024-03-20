@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
 
+    @Query("SELECT s FROM Subscription s WHERE s.period = 'DAILY' AND s.status = 'ACTIVE' AND s.institutionId = :institutionId")
+    List<Subscription> findDailySubscriptionsByInstitutionId(String institutionId);
+
     @Query("SELECT s FROM Subscription s WHERE s.period = 'DAILY'")
     List<Subscription> findAllDailySubscriptions();
 

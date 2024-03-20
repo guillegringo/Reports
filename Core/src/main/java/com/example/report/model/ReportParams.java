@@ -14,6 +14,7 @@ public class ReportParams {
     private String merchantId;
     private List<String> merchantsIncluded;
     private String language;
+    private FileFormat format;
     private Date from;
     private Date to;
 

@@ -35,7 +35,7 @@ public class SubscriptionDto {
     @Schema(description = "Merchants included in the subscription", example = "[\"123\",\"321\",\"678\"]")
     private List<String> merchantsIncluded;
 
-    @Schema(description = "Subscription period", defaultValue = "WEEKLY", allowableValues = {"DAILY", "WEEKLY", "MONTHLY"})
+    @Schema(description = "Subscription period", defaultValue = "DAILY", allowableValues = {"DAILY", "WEEKLY", "MONTHLY"})
     private Period period;
 
     @Schema(description = "Subscription period", defaultValue = "CSV", allowableValues = {"PDF", "CSV", "XLS"})
