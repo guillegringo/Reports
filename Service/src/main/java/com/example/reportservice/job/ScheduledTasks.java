@@ -1,7 +1,7 @@
 package com.example.reportservice.job;
 
 import com.example.report.model.ReportParams;
-import com.example.report.service.DummyReportService;
+
 import com.example.report.util.PeriodUtils;
 import com.example.reportservice.dao.SubscriptionRepository;
 import com.example.reportservice.mapper.ReportParamsMapper;
@@ -30,7 +30,6 @@ public class ScheduledTasks {
     @Autowired
     private ReportParamsMapper reportParamsMapper;
 
-    private final DummyReportService dummyReportService;
     @Autowired
     private JobScheduler jobScheduler;
 

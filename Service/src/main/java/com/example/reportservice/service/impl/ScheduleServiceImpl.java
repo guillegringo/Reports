@@ -1,7 +1,7 @@
 package com.example.reportservice.service.impl;
 
 import com.example.report.model.ReportParams;
-import com.example.report.service.DummyReportService;
+import com.example.report.service.ReportGeneratorService;
 import com.example.report.util.PeriodUtils;
 import com.example.reportservice.dao.SubscriptionRepository;
 import com.example.reportservice.entity.Subscription;
@@ -33,7 +33,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             ReportParams reportParams = reportParamsMapper.subscriptionToReportParams(item);
             reportParams.setFrom(PeriodUtils.getStartOfToday());
             reportParams.setTo(PeriodUtils.getEndOfDay());
-            jobScheduler.<DummyReportService>enqueue(dummyReportService -> dummyReportService.generate(reportParams));
+            jobScheduler.<ReportGeneratorService>enqueue(reportGeneratorService -> reportGeneratorService.generate(reportParams));
         });
 
     }

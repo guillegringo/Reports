@@ -2,7 +2,7 @@ package com.example.report.service;
 
 import com.example.report.model.ReportParams;
 
-public interface DummyReportService {
+public interface ReportGeneratorService {
 
-    void generate(ReportParams reportParams);
+    void generate(ReportParams params);
 }
