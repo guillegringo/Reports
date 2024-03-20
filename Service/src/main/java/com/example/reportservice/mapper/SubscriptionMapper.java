@@ -1,7 +1,9 @@
 package com.example.reportservice.mapper;
 
+import com.example.report.model.FileFormat;
 import com.example.report.model.Period;
 import com.example.report.model.ReportType;
+import com.example.report.model.SubcriptionStatus;
 import com.example.reportservice.entity.Subscription;
 import com.example.reportservice.model.SubscriptionDto;
 import org.mapstruct.Mapper;
@@ -48,5 +50,23 @@ public interface SubscriptionMapper {
     default Period mapPeriod(String period) {
         return Period.valueOf(period);
     }
+
+    default String mapFileFormat(FileFormat fileFormat) {
+        return fileFormat.name();
+    }
+
+    default FileFormat mapFileFormat(String fileFormat) {
+        return FileFormat.valueOf(fileFormat);
+    }
+
+    default String mapSubcriptionStatus(SubcriptionStatus subcriptionStatus) {
+        return subcriptionStatus.name();
+    }
+
+    default SubcriptionStatus mapSubcriptionStatus(String subcriptionStatus) {
+        return SubcriptionStatus.valueOf(subcriptionStatus);
+    }
+
+
 }
 
