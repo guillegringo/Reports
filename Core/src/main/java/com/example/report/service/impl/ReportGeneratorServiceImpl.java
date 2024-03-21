@@ -1,7 +1,6 @@
 package com.example.report.service.impl;
 
 import com.example.report.model.ReportParams;
-import com.example.report.model.ReportType;
 import com.example.report.service.ReportGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.jobrunr.JobRunrException;
@@ -22,7 +21,7 @@ public class ReportGeneratorServiceImpl implements ReportGeneratorService {
     @Override
     public void generate(ReportParams params) {
         try{
-            services.get(params.getReportType().name().toLowerCase()+"ReportGeneratorService").generate(params);
+            services.get(params.getReportType().name().toLowerCase()+"ReportGeneratorServiceImpl").generate(params);
         } catch (NullPointerException ex){
             //throwing this specific jobrunr exception is to tell jobrunr to doNotRetry this
             throw new JobRunrException("Implementation not found for ReportType "+ params.getReportType().name(), true);

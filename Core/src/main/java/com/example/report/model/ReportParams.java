@@ -10,7 +10,9 @@ import java.util.List;
 public class ReportParams {
 
     private Long subscriptionId;
+    private String institutionId;
     private ReportType reportType;
+    private Period period;
     private String merchantId;
     private List<String> merchantsIncluded;
     private String language;
